@@ -1,0 +1,25 @@
+#This is my first attempt at coding, completed significantly with the help of Varun Kumar. The original problem is as follows: 
+#If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+#Find the sum of all the multiples of 3 or 5 below 1000.
+
+#My initial approach did not use the modulo operator, as I did not know it existed. I attempted to define separate lists for all integers 
+#divided by 3 and 5, independantly and then check those lists for integers. This was unsuccesful, as these values were converted to floats
+#after divison within their initial list of values from 0 through 999. The final, assisted solution is as follows:
+
+def problem(x):
+  multiples_of_5_ls=[]
+  multiples_of_3_ls=[]
+  under_1000_ls=[]
+  for i in range(0,x):
+    under_1000_ls.append(i)
+  for j in range(0,x):
+    if under_1000_ls[j] % 3 ==0:
+      multiples_of_3_ls.append(under_1000_ls[j])
+  for k in range(0,x):
+    if under_1000_ls[k] % 5 ==0:
+      multiples_of_5_ls.append(under_1000_ls[k])
+  multiples_of_3_5_ls=multiples_of_3_ls+multiples_of_5_ls
+  multiples_of_3_5_set=set(multiples_of_3_5_ls)
+  print(sum(multiples_of_3_5_set))
+
+problem(1000)
